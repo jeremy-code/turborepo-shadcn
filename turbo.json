@@ -1,15 +1,23 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["NODE_ENV"],
+  "ui": "tui",
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "env": ["ANALYZE"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*", "!.env.example"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
     },
     "dev": {
+      "cache": false,
+      "inputs": ["$TURBO_DEFAULT$", ".env*", "!.env.example"],
+      "persistent": true
+    },
+    "@repo/ui#add": {
       "cache": false,
       "persistent": true
     }

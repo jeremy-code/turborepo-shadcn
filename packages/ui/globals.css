@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* prettier-ignore */
+  :root {
+    --background: 0 0% 100%;             /* white */
+    --foreground: 240 10% 3.9%;          /* zinc.950 */
+    --card: 0 0% 100%;                   /* white */
+    --card-foreground: 240 10% 3.9%;     /* zinc.950 */
+    --popover: 0 0% 100%;                /* white */
+    --popover-foreground: 240 10% 3.9%;  /* zinc.950 */
+    --primary: 240 5.9% 10%;             /* zinc.900 */
+    --primary-foreground: 0 0% 98%;      /* zinc.50 */
+    --secondary: 240 4.8% 95.9%;         /* zinc.100 */
+    --secondary-foreground: 240 5.9% 10; /* zinc.900 */
+    --muted: 240 4.8% 95.9%;             /* zinc.100 */
+    --muted-foreground: 240 3.8% 46.1%;  /* zinc.400 */
+    --accent: 240 4.8% 95.9%;            /* zinc.100 */
+    --accent-foreground: 240 5.9% 10%;   /* zinc.900 */
+    --destructive: 0 84.2% 60.2%;        /* red.500 */
+    --destructive-foreground: 0 0% 98%;  /* zinc.50 */
+    --border: 240 5.9% 90%;              /* zinc.200 */
+    --input: 240 5.9% 90%;               /* zinc.200 */
+    --ring: 240 10% 3.9%;                /* zinc.950 */
+  }
+
+  /* prettier-ignore */
+  [data-theme="dark"] {
+    --background: 240 10% 3.9%;          /* zinc.950 */
+    --foreground: 0 0% 98%;              /* zinc.50 */
+    --card: 240 10% 3.9%;                /* zinc.950 */
+    --card-foreground: 0 0% 98%;         /* zinc.50 */
+    --popover: 240 10% 3.9%;             /* zinc.950 */
+    --popover-foreground: 0 0% 98%;      /* zinc.50 */
+    --primary: 0 0% 98%;                 /* zinc.50 */
+    --primary-foreground: 240 5.9% 10%;  /* zinc.900 */
+    --secondary: 240 3.7% 15.9%;         /* zinc.800 */
+    --secondary-foreground: 0 0% 98%;    /* zinc.50 */
+    --muted: 240 3.7% 15.9%;             /* zinc.800 */
+    --muted-foreground: 240 5% 64.9%;    /* zinc.400 */
+    --accent: 240 3.7% 15.9%;            /* zinc.800 */
+    --accent-foreground: 0 0% 98%;       /* zinc.50 */
+    --destructive: 0 62.8% 30.6%;        /* red.900 */
+    --destructive-foreground: 0 0% 98%;  /* zinc.50 */
+    --border: 240 3.7% 15.9%;            /* zinc.800 */
+    --input: 240 3.7% 15.9%;             /* zinc.800 */
+    --ring: 240 4.9% 83.9%;              /* zinc.300 */
+  }
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6, dt, blockquote, figcaption) {
+    @apply text-balance max-w-[25ch];
+  }
+
+  :is(p, dd, li) {
+    @apply text-pretty max-w-prose;
+  }
+}

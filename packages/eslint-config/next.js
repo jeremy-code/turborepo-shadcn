@@ -1,35 +1,38 @@
-const { resolve } = require("node:path");
+const next = require("@next/eslint-plugin-next");
+const eslintImport = require("eslint-plugin-import");
+const tseslint = require("typescript-eslint");
 
-const project = resolve(process.cwd(), "tsconfig.json");
+const react = require("./react");
 
-/** @type {import("eslint").Linter.Config} */
-module.exports = {
-  extends: [
-    "eslint:recommended",
-    "prettier",
-    require.resolve("@vercel/style-guide/eslint/next"),
-    "turbo",
-  ],
-  globals: {
-    React: true,
-    JSX: true,
+module.exports = tseslint.config(
+  {
+    ignores: [".next"],
   },
-  env: {
-    node: true,
-    browser: true,
-  },
-  plugins: ["only-warn"],
-  settings: {
-    "import/resolver": {
-      typescript: {
-        project,
+  ...react,
+  {
+    plugins: {
+      "@next/next": next,
+      import: eslintImport,
+    },
+    rules: {
+      ...next.configs.recommended.rules,
+    },
+    settings: {
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".mts", ".cts", ".tsx", ".d.ts"],
+      },
+      "import/resolver": {
+        "eslint-import-resolver-node": {
+          extensions: [".js", ".jsx", ".ts", ".tsx"],
+        },
+        "eslint-import-resolver-typescript": {
+          alwaysTryTypes: true,
+        },
+      },
+      react: {
+        // See https://github.com/jsx-eslint/eslint-plugin-react/blob/master/lib/util/linkComponents.js#L33
+        linkComponents: [{ name: "Link", linkAttribute: "href" }],
       },
     },
   },
-  ignorePatterns: [
-    // Ignore dotfiles
-    ".*.js",
-    "node_modules/",
-  ],
-  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
-};
+);

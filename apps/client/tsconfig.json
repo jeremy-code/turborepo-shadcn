@@ -1,0 +1,9 @@
+{
+  "extends": "@repo/tsconfig/tsconfig-nextjs",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next-env.d.ts"]
+}

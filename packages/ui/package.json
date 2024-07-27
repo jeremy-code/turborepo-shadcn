@@ -3,26 +3,37 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+    "./globals.css": "./globals.css",
+    "./postcss.config": "./postcss.config.js",
+    "./tailwind.config": "./tailwind.config.ts",
+    "./utils": "./utils.ts",
+    "./components/*": "./components/*.tsx",
+    "./components/ui/*": "./components/ui/*.tsx"
+  },
+  "imports": {
+    "@repo/ui/*": "./*"
   },
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component"
+    "add": "shadcn-ui add",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@radix-ui/react-switch": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.416.0",
+    "react": "rc",
+    "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^1.12.4",
-    "@types/node": "^20.11.24",
-    "@types/eslint": "^8.56.5",
-    "@types/react": "^18.2.61",
-    "@types/react-dom": "^18.2.19",
-    "eslint": "^8.57.0",
-    "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "react": "^18.2.0"
+    "@repo/tsconfig": "workspace:*",
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/node": "^20.14.12",
+    "@types/react": "npm:types-react@rc",
+    "autoprefixer": "^10.4.19",
+    "shadcn-ui": "^0.8.0",
+    "tailwindcss": "^3.4.7",
+    "tailwindcss-animate": "^1.0.7"
   }
 }

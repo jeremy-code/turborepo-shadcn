@@ -3,17 +3,23 @@
   "version": "0.0.0",
   "private": true,
   "files": [
-    "library.js",
+    "index.js",
     "next.js",
-    "react-internal.js"
+    "react.js"
   ],
   "devDependencies": {
-    "@vercel/style-guide": "^5.2.0",
-    "eslint-config-turbo": "^2.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-only-warn": "^1.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "typescript": "^5.3.3"
+    "@next/eslint-plugin-next": "rc",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-compiler": "0.0.0-experimental-9ed098e-20240725",
+    "eslint-plugin-react-hooks": "rc",
+    "eslint-plugin-tailwindcss": "^3.17.4",
+    "globals": "^15.8.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.14.1"
   }
 }
