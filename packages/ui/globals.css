@@ -56,32 +56,40 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground min-h-svh;
   }
 
-  :is(h1, h2, h3, h4, h5, h6, dt, blockquote, figcaption) {
+  :where(h1, h2, h3, h4, h5, h6, dt, blockquote, figcaption) {
     @apply text-balance max-w-[25ch];
   }
 
-  :is(p, dd, li) {
+  :where(p, dd, li) {
     @apply text-pretty max-w-prose;
   }
-}
 
-@keyframes accordion-down {
-  from {
-    @apply h-0;
-  }
-  to {
-    @apply h-radix-accordion-content;
+  @media (prefers-reduced-motion: no-preference) {
+    :has(:target) {
+      @apply scroll-smooth scroll-pt-12;
+    }
   }
 }
 
-@keyframes accordion-up {
-  from {
-    @apply h-radix-accordion-content;
+@layer utilities {
+  @keyframes accordion-down {
+    from {
+      @apply h-0;
+    }
+    to {
+      @apply h-radix-accordion-content;
+    }
   }
-  to {
-    @apply h-0;
+
+  @keyframes accordion-up {
+    from {
+      @apply h-radix-accordion-content;
+    }
+    to {
+      @apply h-0;
+    }
   }
 }
