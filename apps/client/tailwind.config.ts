@@ -10,7 +10,7 @@ export default {
     // Ensures Tailwind CSS classes are scanned from `@repo/ui` package
     join(
       dirname(require.resolve("@repo/ui/tailwind.config")),
-      "./**/*.{js,jsx,ts,tsx}",
+      "./components/**/*.{js,jsx,ts,tsx}",
     ),
   ],
 } satisfies Config;

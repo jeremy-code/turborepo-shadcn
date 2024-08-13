@@ -1,6 +1,6 @@
 import typography from "@tailwindcss/typography";
 import animate from "tailwindcss-animate";
-import colors from "tailwindcss/colors";
+import radix from "tailwindcss-radix";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import type { PresetsConfig } from "tailwindcss/types/config";
 
@@ -16,10 +16,14 @@ const uiConfig: PresetsConfig = {
       padding: "1rem", // sizes.4 (16px)
     },
     extend: {
+      animation: {
+        "accordion-down": "accordion-down 200ms ease-out",
+        "accordion-up": "accordion-up 200ms ease-out",
+      },
       borderColor: {
         DEFAULT: "hsl(var(--border))",
       },
-      colors: {
+      colors: ({ colors }) => ({
         gray: colors.zinc,
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -53,27 +57,13 @@ const uiConfig: PresetsConfig = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-      },
+      }),
       fontFamily: {
         sans: ["var(--font-lexend)", ...fontFamily.sans],
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
     },
   },
-  plugins: [animate, typography],
+  plugins: [animate, radix({ variantPrefix: "radix" }), typography],
 };
 
 export default uiConfig;

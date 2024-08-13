@@ -67,3 +67,21 @@
     @apply text-pretty max-w-prose;
   }
 }
+
+@keyframes accordion-down {
+  from {
+    @apply h-0;
+  }
+  to {
+    @apply h-radix-accordion-content;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    @apply h-radix-accordion-content;
+  }
+  to {
+    @apply h-0;
+  }
+}
