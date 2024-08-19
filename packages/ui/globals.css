@@ -56,7 +56,15 @@
   }
 
   body {
-    @apply bg-background text-foreground min-h-svh;
+    @apply flex min-h-svh flex-col bg-background text-foreground;
+
+    & > :is(main, aside) {
+      @apply flex-[1_0_auto];
+    }
+
+    & > :is(header, footer, nav) {
+      @apply flex-none;
+    }
   }
 
   :where(h1, h2, h3, h4, h5, h6, dt, blockquote, figcaption) {

@@ -20,9 +20,7 @@ const uiConfig: PresetsConfig = {
         "accordion-down": "accordion-down 200ms ease-out",
         "accordion-up": "accordion-up 200ms ease-out",
       },
-      borderColor: {
-        DEFAULT: "hsl(var(--border))",
-      },
+      borderColor: { DEFAULT: "hsl(var(--border))" },
       colors: ({ colors }) => ({
         gray: colors.zinc,
         input: "hsl(var(--input))",
@@ -61,6 +59,8 @@ const uiConfig: PresetsConfig = {
       fontFamily: {
         sans: ["var(--font-lexend)", ...fontFamily.sans],
       },
+      ringColor: { DEFAULT: "hsl(var(--ring))" },
+      ringOffsetColor: { DEFAULT: "hsl(var(--background))" },
     },
   },
   plugins: [animate, radix({ variantPrefix: "radix" }), typography],
