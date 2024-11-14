@@ -4,7 +4,7 @@
   "private": true,
   "exports": {
     "./globals.css": "./globals.css",
-    "./postcss.config": "./postcss.config.js",
+    "./postcss.config": "./postcss.config.mjs",
     "./tailwind.config": "./tailwind.config.ts",
     "./utils": "./utils.ts",
     "./components/*": "./components/*.tsx",
@@ -18,23 +18,23 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@radix-ui/react-switch": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.428.0",
+    "lucide-react": "^0.456.0",
     "react": "rc",
-    "tailwind-merge": "^2.5.2"
+    "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
-    "@tailwindcss/typography": "^0.5.14",
-    "@types/node": "^22.4.1",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^22.9.0",
     "@types/react": "npm:types-react@rc",
     "autoprefixer": "^10.4.20",
-    "shadcn-ui": "^0.8.0",
-    "tailwindcss": "^3.4.10",
+    "shadcn-ui": "^0.9.3",
+    "tailwindcss": "^3.4.14",
     "tailwindcss-animate": "^1.0.7",
-    "tailwindcss-radix": "^3.0.4"
+    "tailwindcss-radix": "^3.0.5"
   }
 }

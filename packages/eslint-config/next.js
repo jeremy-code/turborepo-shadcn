@@ -1,38 +1,22 @@
-const next = require("@next/eslint-plugin-next");
-const eslintImport = require("eslint-plugin-import");
-const tseslint = require("typescript-eslint");
+import tseslint from "typescript-eslint";
 
-const react = require("./react");
+import react from "./react.js";
 
-module.exports = tseslint.config(
+export default tseslint.config(
   {
     ignores: [".next"],
   },
   ...react,
   {
-    plugins: {
-      "@next/next": next,
-      import: eslintImport,
-    },
-    rules: {
-      ...next.configs.recommended.rules,
-    },
     settings: {
-      "import/parsers": {
-        "@typescript-eslint/parser": [".ts", ".mts", ".cts", ".tsx", ".d.ts"],
-      },
-      "import/resolver": {
-        "eslint-import-resolver-node": {
-          extensions: [".js", ".jsx", ".ts", ".tsx"],
-        },
-        "eslint-import-resolver-typescript": {
-          alwaysTryTypes: true,
-        },
-      },
       react: {
-        // See https://github.com/jsx-eslint/eslint-plugin-react/blob/master/lib/util/linkComponents.js#L33
+        formComponents: [{ name: "Form", formAttribute: "action" }],
         linkComponents: [{ name: "Link", linkAttribute: "href" }],
       },
     },
+  },
+  {
+    files: ["**/*.{js,cjs,jsx,mjs}"],
+    ...tseslint.configs.disableTypeChecked,
   },
 );

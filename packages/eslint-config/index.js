@@ -1,27 +1,37 @@
-const eslint = require("@eslint/js");
-const globals = require("globals");
-const tseslint = require("typescript-eslint");
+import eslint from "@eslint/js";
+import globals from "globals";
+import importPlugin from "eslint-plugin-import";
+import tseslint from "typescript-eslint";
 
-module.exports = tseslint.config(
+export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
+  importPlugin.flatConfigs.recommended,
+  importPlugin.flatConfigs.typescript,
   {
+    name: "eslint-config/index.js",
     languageOptions: {
       parserOptions: {
         /**
-         * Automatically load `tsconfig.json` files
+         * Automatically load `tsconfig.json` files for typed linting rules
          *
-         * @see {@link https://typescript-eslint.io/packages/parser#experimental_useprojectservice}
+         * @see {@link https://typescript-eslint.io/packages/parser/#projectservice}
          */
-        EXPERIMENTAL_useProjectService: true,
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
       globals: {
         ...globals.node,
       },
     },
+    settings: {
+      "import/resolver": {
+        typescript: true,
+      },
+    },
   },
   {
-    files: ["*.{js,cjs,jsx,mjs}"],
+    files: ["**/*.{js,cjs,jsx,mjs}"],
     ...tseslint.configs.disableTypeChecked,
   },
 );

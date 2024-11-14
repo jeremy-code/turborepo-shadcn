@@ -1,18 +1,18 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
 
+import type { NextConfig } from "next";
+
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Only enable this if you are using Pages Router instead of App Router
+  // Only enable transpilePackages if you are using Pages Router instead of App Router
   // transpilePackages: ["@repo/ui"],
   experimental: {
-    ppr: true,
-    reactCompiler: true,
     webpackBuildWorker: true,
+    reactCompiler: true,
   },
-};
+} satisfies NextConfig;
 
 export default withBundleAnalyzer(nextConfig);

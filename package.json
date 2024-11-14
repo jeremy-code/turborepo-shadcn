@@ -13,12 +13,12 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
-    "eslint": "^8.57.0",
-    "husky": "^9.1.4",
-    "lint-staged": "^15.2.9",
+    "eslint": "^9.14.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
-    "turbo": "^2.0.14",
-    "typescript": "^5.5.4"
+    "turbo": "^2.2.3",
+    "typescript": "^5.6.3"
   },
   "pnpm": {
     "overrides": {
@@ -26,5 +26,5 @@
       "@types/react-dom": "npm:types-react-dom@rc"
     }
   },
-  "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247"
+  "packageManager": "pnpm@9.13.0+sha512.beb9e2a803db336c10c9af682b58ad7181ca0fbd0d4119f2b33d5f2582e96d6c0d93c85b23869295b765170fbdaa92890c0da6ada457415039769edf3c959efe"
 }

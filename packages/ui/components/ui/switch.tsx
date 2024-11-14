@@ -7,11 +7,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 type SwitchVariants = {
-  size: {
-    default: string;
-    sm: string;
-    lg: string;
-  };
+  size: Record<"default" | "sm" | "lg", string>;
 };
 
 export const switchRootVariants = cva<SwitchVariants>(

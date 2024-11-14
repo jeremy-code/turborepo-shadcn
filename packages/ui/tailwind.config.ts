@@ -4,13 +4,15 @@ import radix from "tailwindcss-radix";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import type { PresetsConfig } from "tailwindcss/types/config";
 
-// Type annotation with `PresetsConfig` type is necessary, so that TypeScript
-// doesn't complain about the Tailwind CSS plugins' external dependencies' types
-// (e.g. tailwindcss-animate).
+// Type annotation with `PresetsConfig` type is necessary, otherwise TypeScript
+// errors for plugins' types: "The inferred type of 'default'
+// cannot be named without a reference to '*'. `This is likely not portable. A
+// type annotation is necessary"
 const uiConfig: PresetsConfig = {
   content: ["./components/**/*.{js,jsx,ts,tsx}"],
   darkMode: ["selector", "[data-theme='dark']"],
   theme: {
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- theme() is an external Tailwind CSS type
     container: ({ theme }) => ({
       center: true,
       padding: theme("spacing.4") as string, // 1rem (16px)

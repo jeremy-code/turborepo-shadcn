@@ -1,20 +1,23 @@
-const jsxA11y = require("eslint-plugin-jsx-a11y");
-const reactCompiler = require("eslint-plugin-react-compiler");
-const reactHooks = require("eslint-plugin-react-hooks");
-const react = require("eslint-plugin-react");
-const tailwind = require("eslint-plugin-tailwindcss");
-const globals = require("globals");
-const tseslint = require("typescript-eslint");
+import globals from "globals";
+import importPlugin from "eslint-plugin-import";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import react from "eslint-plugin-react";
+import reactCompiler from "eslint-plugin-react-compiler";
+import reactHooks from "eslint-plugin-react-hooks";
+import tailwind from "eslint-plugin-tailwindcss";
+import tseslint from "typescript-eslint";
 
-const base = require(".");
+import base from "./index.js";
 
-module.exports = tseslint.config(
+export default tseslint.config(
   ...base,
   ...tailwind.configs["flat/recommended"],
   jsxA11y.flatConfigs.recommended,
   react.configs.flat.recommended,
   react.configs.flat["jsx-runtime"],
+  importPlugin.flatConfigs.react,
   {
+    name: "eslint-config/react.js",
     plugins: {
       "react-compiler": reactCompiler,
       "react-hooks": reactHooks,
@@ -43,8 +46,9 @@ module.exports = tseslint.config(
     },
     languageOptions: {
       globals: {
-        ...globals.node,
         ...globals.browser,
+        ...globals.node,
+        ...globals.serviceworker,
       },
     },
     settings: {
@@ -52,8 +56,12 @@ module.exports = tseslint.config(
         version: "detect",
       },
       tailwindcss: {
-        callees: ["classnames", "clsx", "cn", "cva"],
+        callees: ["classnames", "clsx", "cn", "ctl", "cva"],
       },
     },
+  },
+  {
+    files: ["**/*.{js,cjs,jsx,mjs}"],
+    ...tseslint.configs.disableTypeChecked,
   },
 );

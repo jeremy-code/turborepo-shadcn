@@ -7,8 +7,8 @@
     "incremental": false,
 
     /* Language and Environment */
-    "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "target": "ES2023",
+    "lib": ["ES2023"],
     "moduleDetection": "force",
 
     /* Modules */
@@ -28,6 +28,7 @@
     "strict": true,
     "strictNullChecks": true,
     "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
 
     /* Completeness */
     "skipLibCheck": true
