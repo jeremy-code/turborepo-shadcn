@@ -1,6 +1,6 @@
 import { dirname, join } from "node:path";
-import type { Config } from "tailwindcss";
 
+import type { Config } from "tailwindcss";
 import ui from "@repo/ui/tailwind.config";
 
 export default {

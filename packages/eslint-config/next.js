@@ -1,22 +1,28 @@
 import tseslint from "typescript-eslint";
+import next from "@next/eslint-plugin-next";
 
 import react from "./react.js";
 
 export default tseslint.config(
-  {
-    ignores: [".next"],
-  },
+  /**
+   * @see {@link https://eslint.org/docs/latest/use/configure/configuration-files#globally-ignoring-files-with-ignores}
+   */
+  { ignores: [".next/"] },
   ...react,
   {
-    settings: {
-      react: {
-        formComponents: [{ name: "Form", formAttribute: "action" }],
-        linkComponents: [{ name: "Link", linkAttribute: "href" }],
-      },
+    plugins: { "@next/next": next },
+    rules: {
+      ...next.configs.recommended.rules,
     },
-  },
-  {
-    files: ["**/*.{js,cjs,jsx,mjs}"],
-    ...tseslint.configs.disableTypeChecked,
+    settings: {
+      /**
+       * @see {@link https://nextjs.org/docs/app/api-reference/components/form}
+       */
+      formComponents: [{ name: "Form", formAttribute: "action" }],
+      /**
+       * @see {@link https://nextjs.org/docs/app/api-reference/components/link}
+       */
+      linkComponents: [{ name: "Link", linkAttribute: "href" }],
+    },
   },
 );

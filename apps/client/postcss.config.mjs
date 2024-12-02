@@ -1,3 +1,1 @@
-import postcss from "@repo/ui/postcss.config";
-
-export default postcss;
+export { default } from "@repo/ui/postcss.config.mjs";

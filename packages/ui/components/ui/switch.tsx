@@ -2,12 +2,12 @@
 
 import type { ComponentPropsWithRef } from "react";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
-
+import type { ClassValue } from "class-variance-authority/types";
 import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 type SwitchVariants = {
-  size: Record<"default" | "sm" | "lg", string>;
+  size: Record<"default" | "sm" | "lg", ClassValue>;
 };
 
 export const switchRootVariants = cva<SwitchVariants>(

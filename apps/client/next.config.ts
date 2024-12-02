@@ -1,5 +1,4 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
-
 import type { NextConfig } from "next";
 
 const withBundleAnalyzer = bundleAnalyzer({
@@ -7,6 +6,10 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const nextConfig = {
+  poweredByHeader: false,
+  compiler: {
+    removeConsole: { exclude: ["error"] },
+  },
   // Only enable transpilePackages if you are using Pages Router instead of App Router
   // transpilePackages: ["@repo/ui"],
   experimental: {

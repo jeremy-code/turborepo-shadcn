@@ -35,6 +35,8 @@ jobs:
           path: |
             ${{ steps.pnpm-store-path.outputs.STORE_PATH }}
             ${{ github.workspace }}/apps/*/.next/cache
+          # By default, Next.js accepts files with extensions: .js, .jsx, .ts, .tsx
+          # https://nextjs.org/docs/app/api-reference/next-config-js/pageExtensions
           key: nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
           restore-keys: nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-
 

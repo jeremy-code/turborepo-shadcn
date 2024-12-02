@@ -4,10 +4,10 @@ import type { ComponentPropsWithRef } from "react";
 import { AccessibleIcon } from "@radix-ui/react-accessible-icon";
 import { Moon, RefreshCw, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-
 import { SwitchRoot, SwitchThumb } from "@repo/ui/components/ui/switch";
 import { cn } from "@repo/ui/utils";
-import { useIsMounted } from "@/hooks/useIsMounted";
+
+import { useIsMounted } from "#hooks/useIsMounted";
 
 export type ThemeToggleProps = ComponentPropsWithRef<typeof SwitchRoot>;
 

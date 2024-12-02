@@ -1,6 +1,6 @@
 {
   "display": "Next.js",
-  "extends": "./tsconfig-react.json",
+  "extends": "./tsconfig-react",
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
@@ -8,10 +8,7 @@
     "allowJs": true,
 
     /* Emit */
-    "noEmit": true,
-
-    /* Editor Support */
-    "plugins": [{ "name": "next" }]
+    "noEmit": true
   },
   "exclude": ["${configDir}/node_modules"]
 }

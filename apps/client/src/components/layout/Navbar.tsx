@@ -1,6 +1,8 @@
 import { cn } from "@repo/ui/utils";
 import type { ComponentPropsWithRef } from "react";
-import { ThemeToggle } from "@/components/misc/ThemeToggle";
+import Link from "next/link";
+
+import { ThemeToggle } from "#components/misc/ThemeToggle";
 
 export const Navbar = ({
   className,
@@ -13,10 +15,10 @@ export const Navbar = ({
         <nav>
           <ul className="flex gap-4">
             <li>
-              <a href="/">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="/about">About</a>
+              <Link href="/about">About</Link>
             </li>
           </ul>
         </nav>

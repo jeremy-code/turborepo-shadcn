@@ -1,3 +1,1 @@
-import next from "@repo/eslint-config/next.js";
-
-export default [...next];
+export { default } from "@repo/eslint-config/next.js";

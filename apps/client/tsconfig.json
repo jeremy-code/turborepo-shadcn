@@ -1,9 +1,28 @@
 {
   "extends": "@repo/tsconfig/tsconfig-nextjs",
   "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+
+    /* Modules */
+
+    /**
+     * By default, TypeScript will substitute `.js` for `.ts`, `.tsx`, etc.
+     * Conversely, in `enhanced-resolve`, if file `*.js` is not found, `.js`
+     * will become `.js.ts`, `.js.tsx`, ...; hence using a custom namespace for
+     * TypeScript and extensionless imports otherwise.
+     *
+     * Note that the Webpack configs' extensions are:
+     * 1. Next.js - [".js", ".mjs", ".tsx", ".ts", ".jsx", ".json", ".wasm"]
+     * 2. `eslint-import-resolver-typescript` - [".ts", ".tsx", ".d.ts", ".js",
+     *    ".jsx", ".json", ".node"]
+     *
+     * @see {@link https://www.typescriptlang.org/docs/handbook/modules/reference.html#file-extension-substitution}
+     * @see {@link https://webpack.js.org/configuration/resolve/#resolveextensions}
+     */
+    "customConditions": ["@repo/development"],
+
+    /* Editor Support */
+    "plugins": [{ "name": "next" }]
   },
   "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next-env.d.ts"]
 }

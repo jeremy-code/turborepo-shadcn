@@ -1,6 +1,8 @@
 import eslint from "@eslint/js";
 import globals from "globals";
 import importPlugin from "eslint-plugin-import";
+import pluginPromise from "eslint-plugin-promise";
+import turbo from "eslint-plugin-turbo";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
@@ -8,6 +10,8 @@ export default tseslint.config(
   ...tseslint.configs.recommendedTypeChecked,
   importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
+  pluginPromise.configs["flat/recommended"],
+  turbo.configs["flat/recommended"],
   {
     name: "eslint-config/index.js",
     languageOptions: {
@@ -20,18 +24,28 @@ export default tseslint.config(
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
-      globals: {
-        ...globals.node,
-      },
+      globals: { ...globals.node },
+    },
+    rules: {
+      "import/order": [
+        "error",
+        {
+          pathGroups: [{ pattern: "@repo/*", group: "internal" }],
+          "newlines-between": "always",
+        },
+      ],
     },
     settings: {
       "import/resolver": {
-        typescript: true,
+        typescript:
+          /** @type {import('eslint-import-resolver-typescript').TsResolverOptions} */ ({
+            alwaysTryTypes: true,
+          }),
       },
     },
   },
   {
     files: ["**/*.{js,cjs,jsx,mjs}"],
-    ...tseslint.configs.disableTypeChecked,
+    extends: [tseslint.configs.disableTypeChecked],
   },
 );

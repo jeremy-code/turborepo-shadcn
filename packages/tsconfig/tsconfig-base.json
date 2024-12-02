@@ -33,5 +33,9 @@
     /* Completeness */
     "skipLibCheck": true
   },
-  "include": ["${configDir}/**/*.ts", "${configDir}/**/*.tsx"]
+  "include": [
+    "${configDir}/**/*.ts",
+    "${configDir}/**/*.tsx",
+    "${configDir}/**/*.d.ts"
+  ]
 }
