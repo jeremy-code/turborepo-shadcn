@@ -1,5 +1,5 @@
 import globals from "globals";
-import importPlugin from "eslint-plugin-import";
+import importX from "eslint-plugin-import-x";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactCompiler from "eslint-plugin-react-compiler";
@@ -15,7 +15,7 @@ export default tseslint.config(
   jsxA11y.flatConfigs.recommended,
   react.configs.flat.recommended,
   react.configs.flat["jsx-runtime"],
-  importPlugin.flatConfigs.react,
+  importX.flatConfigs.react,
   {
     name: "eslint-config/react.js",
     plugins: {

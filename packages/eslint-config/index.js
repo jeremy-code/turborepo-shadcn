@@ -1,6 +1,7 @@
 import eslint from "@eslint/js";
 import globals from "globals";
-import importPlugin from "eslint-plugin-import";
+import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
+import importX from "eslint-plugin-import-x";
 import pluginPromise from "eslint-plugin-promise";
 import turbo from "eslint-plugin-turbo";
 import tseslint from "typescript-eslint";
@@ -8,8 +9,8 @@ import tseslint from "typescript-eslint";
 export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
-  importPlugin.flatConfigs.recommended,
-  importPlugin.flatConfigs.typescript,
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
   pluginPromise.configs["flat/recommended"],
   turbo.configs["flat/recommended"],
   {
@@ -27,8 +28,11 @@ export default tseslint.config(
       globals: { ...globals.node },
     },
     rules: {
-      "import/order": [
+      "import-x/order": [
         "error",
+        /**
+         * @see {@link https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/order.md}
+         */
         {
           pathGroups: [{ pattern: "@repo/*", group: "internal" }],
           "newlines-between": "always",
@@ -36,12 +40,15 @@ export default tseslint.config(
       ],
     },
     settings: {
-      "import/resolver": {
-        typescript:
-          /** @type {import('eslint-import-resolver-typescript').TsResolverOptions} */ ({
-            alwaysTryTypes: true,
-          }),
-      },
+      /**
+       * @see {@link https://github.com/un-ts/eslint-plugin-import-x/pull/192}
+       * @see {@link https://github.com/un-ts/eslint-plugin-import-x/issues/40#issuecomment-2381444266}
+       */
+      "import-x/resolver-next": [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+        }),
+      ],
     },
   },
   {
