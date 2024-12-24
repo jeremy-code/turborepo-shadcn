@@ -1,6 +1,3 @@
 {
-  "extends": "@repo/tsconfig/tsconfig-react",
-  "compilerOptions": {
-    "customConditions": ["@repo/development"]
-  }
+  "extends": "@repo/tsconfig/tsconfig-react"
 }

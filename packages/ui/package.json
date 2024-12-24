@@ -13,20 +13,20 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@radix-ui/react-switch": "^1.1.1",
+    "@radix-ui/react-switch": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.468.0",
-    "tailwind-merge": "^2.5.5"
+    "lucide-react": "^0.469.0",
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@tailwindcss/typography": "^0.5.15",
-    "@types/react": "^19.0.0",
+    "@types/react": "^19.0.2",
     "autoprefixer": "^10.4.20",
-    "shadcn-ui": "^0.9.3",
-    "tailwindcss": "^3.4.16",
+    "shadcn-ui": "^0.9.4",
+    "tailwindcss": "^3.4.17",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-radix": "^3.0.5"
   },
