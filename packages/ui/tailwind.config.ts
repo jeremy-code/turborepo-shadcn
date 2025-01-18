@@ -1,4 +1,3 @@
-import typography from "@tailwindcss/typography";
 import animate from "tailwindcss-animate";
 import radix from "tailwindcss-radix";
 import { fontFamily } from "tailwindcss/defaultTheme";
@@ -32,47 +31,41 @@ const uiConfig: PresetsConfig = {
       borderColor: { DEFAULT: "hsl(var(--border))" },
       colors: ({ colors }) => ({
         gray: colors.zinc,
+        border: "hsl(var(--border))",
         input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        ...[
+          "primary",
+          "secondary",
+          "destructive",
+          "muted",
+          "accent",
+          "popover",
+          "card",
+        ].reduce(
+          (acc, key) => ({
+            ...acc,
+            [key]: {
+              DEFAULT: `hsl(var(--${key}))`,
+              foreground: `hsl(var(--${key}-foreground))`,
+            },
+          }),
+          {},
+        ),
       }),
       fontFamily: {
         sans: ["var(--font-lexend)", ...fontFamily.sans],
       },
       ringColor: { DEFAULT: "hsl(var(--ring))" },
       ringOffsetColor: { DEFAULT: "hsl(var(--background))" },
+      ringOpacity: { DEFAULT: "1" },
+      transitionProperty: {
+        size: "width, height",
+      },
     },
   },
-  plugins: [animate, radix({ variantPrefix: "radix" }), typography],
+  plugins: [animate, radix({ variantPrefix: "radix" })],
 };
 
 export default uiConfig;

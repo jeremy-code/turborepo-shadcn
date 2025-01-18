@@ -5,6 +5,7 @@ import * as SwitchPrimitives from "@radix-ui/react-switch";
 import type { ClassValue } from "class-variance-authority/types";
 import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
+import { Slottable } from "@radix-ui/react-slot";
 
 type SwitchVariants = {
   size: Record<"default" | "sm" | "lg", ClassValue>;
@@ -13,10 +14,11 @@ type SwitchVariants = {
 export const switchRootVariants = cva<SwitchVariants>(
   [
     "inline-flex shrink-0 cursor-pointer items-center rounded-full p-0.5 transition-[background-color,box-shadow,opacity]",
+    "shadow-[0_0_0_1px] shadow-border hover:shadow-gray-300/90 dark:hover:shadow-gray-700/90",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
     "disabled:cursor-not-allowed disabled:opacity-50",
-    "radix-state-checked:bg-primary",
-    "radix-state-unchecked:bg-input",
+    "radix-state-checked:bg-primary radix-state-checked:shadow-primary radix-state-checked:dark:bg-border radix-state-checked:dark:shadow-border",
+    "radix-state-unchecked:bg-border radix-state-unchecked:dark:bg-white/5",
   ],
   {
     variants: {
@@ -44,7 +46,7 @@ export const SwitchRoot = ({
 
 export const switchThumbVariants = cva<SwitchVariants>(
   [
-    "rounded-[inherit] bg-background transition-transform will-change-transform",
+    "rounded-[inherit] bg-white transition-transform will-change-transform",
     "radix-state-unchecked:translate-x-0",
   ],
   {
@@ -73,9 +75,11 @@ export const SwitchThumb = ({
 
 export const Switch = ({
   size,
+  children,
   ...props
 }: ComponentPropsWithRef<typeof SwitchRoot>) => (
   <SwitchRoot size={size} {...props}>
+    <Slottable>{children}</Slottable>
     <SwitchThumb size={size} />
   </SwitchRoot>
 );

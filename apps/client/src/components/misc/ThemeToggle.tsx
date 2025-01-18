@@ -34,7 +34,7 @@ export const ThemeToggle = (props: ThemeToggleProps) => {
       disabled={!isMounted}
       {...props}
     >
-      <SwitchThumb className="grid place-content-center">
+      <SwitchThumb className="grid place-content-center bg-background">
         <AccessibleIcon label={themeIconLabel}>
           <ThemeIcon
             size={16} // spacing.4 (1rem)

@@ -45,9 +45,7 @@ export default tseslint.config(
        * @see {@link https://github.com/un-ts/eslint-plugin-import-x/issues/40#issuecomment-2381444266}
        */
       "import-x/resolver-next": [
-        createTypeScriptImportResolver({
-          alwaysTryTypes: true,
-        }),
+        createTypeScriptImportResolver({ alwaysTryTypes: true }),
       ],
     },
   },

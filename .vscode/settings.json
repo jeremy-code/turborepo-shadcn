@@ -12,6 +12,10 @@
     "apps/client/tailwind.config.ts": "apps/client/**",
     "packages/ui/tailwind.config.ts": "packages/ui/**"
   },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
   "typescript.enablePromptUseWorkspaceTsdk": true, // Use the workspace TypeScript version (useful for Next.js)
   "typescript.tsdk": "./node_modules/typescript/lib"
 }

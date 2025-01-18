@@ -42,6 +42,12 @@ export default tseslint.config(
           },
         },
       ],
+      /**
+       * Server actions must be async functions, even if they don't use `await`.
+       *
+       * @see {@link https://typescript-eslint.io/rules/require-await/}
+       */
+      "@typescript-eslint/require-await": "off",
       "react-compiler/react-compiler": "error",
     },
     languageOptions: {
@@ -56,7 +62,7 @@ export default tseslint.config(
         version: "detect",
       },
       tailwindcss: {
-        callees: ["classnames", "clsx", "cn", "ctl", "cva"],
+        callees: ["classnames", "clsx", "cn", "ctl", "cva", "twMerge"],
       },
     },
   },

@@ -23,7 +23,7 @@
     --destructive-foreground: 0 0% 98%;  /* zinc.50 */
     --border: 240 5.9% 90%;              /* zinc.200 */
     --input: 240 5.9% 90%;               /* zinc.200 */
-    --ring: 240 10% 3.9%;                /* zinc.950 */
+    --ring: 217.2 91.2% 59.8%;           /* blue.500 */
   }
 
   /* prettier-ignore */
@@ -46,13 +46,13 @@
     --destructive-foreground: 0 0% 98%;  /* zinc.50 */
     --border: 240 3.7% 15.9%;            /* zinc.800 */
     --input: 240 3.7% 15.9%;             /* zinc.800 */
-    --ring: 240 4.9% 83.9%;              /* zinc.300 */
+    --ring: 213.1 93.9% 67.8%            /* blue.400 */
   }
 }
 
 @layer base {
   html {
-    @apply antialiased;
+    @apply antialiased [interpolate-size:allow-keywords] [text-size-adjust:none];
   }
 
   body {
@@ -71,8 +71,16 @@
     @apply text-balance max-w-[25ch];
   }
 
-  :where(p, dd, li) {
+  :where(p, dd, li, figcaption) {
     @apply text-pretty max-w-prose;
+  }
+
+  :where(td, math, time[datetime*=":"]) {
+    @apply tabular-nums lining-nums;
+  }
+
+  textarea:not([rows]) {
+    @apply min-h-[10em];
   }
 
   @media (prefers-reduced-motion: no-preference) {
