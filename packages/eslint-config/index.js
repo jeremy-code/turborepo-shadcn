@@ -2,6 +2,7 @@ import eslint from "@eslint/js";
 import globals from "globals";
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
 import importX from "eslint-plugin-import-x";
+import pluginJest from "eslint-plugin-jest";
 import pluginPromise from "eslint-plugin-promise";
 import turbo from "eslint-plugin-turbo";
 import tseslint from "typescript-eslint";
@@ -48,6 +49,14 @@ export default tseslint.config(
         createTypeScriptImportResolver({ alwaysTryTypes: true }),
       ],
     },
+  },
+  {
+    files: [
+      "**/*.spec.{js,jsx,ts,tsx}",
+      "**/*.test.{js,jsx,ts,tsx}",
+      "src/__tests__/**/*",
+    ],
+    ...pluginJest.configs["flat/recommended"],
   },
   {
     files: ["**/*.{js,cjs,jsx,mjs}"],

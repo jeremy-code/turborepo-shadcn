@@ -15,6 +15,9 @@ const Home = () => {
       <Navbar />
       <main className="container flex flex-col gap-2 py-4">
         <Heading size="3xl">Home</Heading>
+        <Heading as="h2" size="3xl">
+          H2 to u 2
+        </Heading>
         <Link
           isExternal
           href="https://en.wikipedia.org/wiki/Link_(The_Legend_of_Zelda)"

@@ -36,7 +36,6 @@
     "declarationMap": true,
 
     /* Interop Constraints */
-    "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "esModuleInterop": true,
 

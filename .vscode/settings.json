@@ -8,6 +8,7 @@
   "files.associations": {
     "*.css": "tailwindcss" // @see {@link https://github.com/tailwindlabs/tailwindcss-intellisense#filesassociations}
   },
+  "jest.virtualFolders": [{ "name": "client", "rootPath": "apps/client" }],
   "tailwindCSS.experimental.configFile": {
     "apps/client/tailwind.config.ts": "apps/client/**",
     "packages/ui/tailwind.config.ts": "packages/ui/**"
