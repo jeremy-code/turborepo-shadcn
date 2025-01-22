@@ -18,13 +18,32 @@ const Home = () => {
         <Heading as="h2" size="3xl">
           H2 to u 2
         </Heading>
-        <Link
-          isExternal
-          href="https://en.wikipedia.org/wiki/Link_(The_Legend_of_Zelda)"
-          className="text-blue-500 hover:text-blue-600 hover:dark:text-blue-400"
-        >
-          Actually, Zelda is the name of the scientist
-        </Link>
+        <ul className="list-inside list-disc">
+          <li>
+            <Link
+              isExternal
+              href="https://en.wikipedia.org/wiki/Link_(The_Legend_of_Zelda)"
+              color="link"
+              underline="hover"
+            >
+              Actually, Zelda is the name of the scientist
+            </Link>
+          </li>
+          <li>
+            <Link href="#" underline>
+              Another link
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/please-do-not-go-here-or-the-link-becomes-purple"
+              underline
+              color="link"
+            >
+              A non-external blue link
+            </Link>
+          </li>
+        </ul>
         <p className="mb-4">Home page</p>
         <div className="flex flex-col gap-3">
           <Label className="mt-2" required>
