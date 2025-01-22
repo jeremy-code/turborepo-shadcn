@@ -10,7 +10,7 @@ export const Checkbox = ({
 }: Omit<ComponentPropsWithRef<typeof CheckboxPrimitive.Root>, "children">) => (
   <CheckboxPrimitive.Root
     className={cn(
-      "flex size-4 appearance-none items-center justify-center rounded border bg-background shadow outline-none transition-colors hover:bg-muted",
+      "flex size-4 appearance-none items-center justify-center rounded border bg-background shadow outline-none transition-[color,background-color,border-color,box-shadow] hover:bg-muted",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
       "radix-state-checked:border-primary radix-state-checked:bg-primary radix-state-checked:text-primary-foreground",
       className,

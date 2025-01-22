@@ -20,6 +20,7 @@
   "dependencies": {
     "@next/bundle-analyzer": "^15.1.5",
     "@radix-ui/react-accessible-icon": "^1.1.1",
+    "@radix-ui/react-visually-hidden": "^1.1.1",
     "@repo/ui": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.473.0",

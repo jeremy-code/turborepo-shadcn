@@ -12,11 +12,15 @@ import { cn } from "@repo/ui/utils";
 
 export const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
+export type NavigationMenuProps = ComponentPropsWithRef<
+  typeof NavigationMenuPrimitive.Root
+>;
+
 export const NavigationMenu = ({
   className,
   children,
   ...props
-}: ComponentPropsWithRef<typeof NavigationMenuPrimitive.Root>) => (
+}: NavigationMenuProps) => (
   <NavigationMenuPrimitive.Root
     className={cn("relative z-10 flex grow justify-center", className)}
     {...props}
@@ -32,7 +36,7 @@ export const NavigationMenuList = ({
   ...props
 }: ComponentPropsWithRef<typeof NavigationMenuPrimitive.List>) => (
   <NavigationMenuPrimitive.List
-    className={cn("m-0 flex justify-center gap-4 rounded-md p-1", className)}
+    className={cn("m-0 flex justify-center gap-4 rounded-md", className)}
     {...props}
   >
     <Slottable>{children}</Slottable>

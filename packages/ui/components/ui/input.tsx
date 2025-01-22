@@ -11,7 +11,7 @@ export const Input = ({ className, asChild, ...props }: InputProps) => {
   return (
     <Comp
       className={cn(
-        "flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-sm shadow-sm transition-[opacity,border-color,color,background-color] dark:bg-white/5",
+        "flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-sm shadow-sm transition-[opacity,border-color,color,background-color,box-shadow] dark:bg-white/5",
         "file:border-0 file:bg-transparent file:text-sm file:font-medium",
         "hover:border-gray-300/90 dark:hover:border-gray-700/90",
         "placeholder:text-muted-foreground/80",

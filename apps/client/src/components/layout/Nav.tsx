@@ -8,6 +8,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  type NavigationMenuProps,
 } from "@repo/ui/components/ui/navigation-menu";
 
 const components = [
@@ -72,9 +73,9 @@ const ListItem = ({
   </li>
 );
 
-export const Nav = () => {
+export const Nav = (props: NavigationMenuProps) => {
   return (
-    <NavigationMenu>
+    <NavigationMenu {...props}>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
