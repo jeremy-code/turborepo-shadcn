@@ -1,28 +1,23 @@
 import tseslint from "typescript-eslint";
 import next from "@next/eslint-plugin-next";
 
-import react from "./react.js";
+import { reactConfig } from "./react.js";
+import disables from "./disables.js";
 
-export default tseslint.config(
+export const nextConfig = tseslint.config(
   /**
    * @see {@link https://eslint.org/docs/latest/use/configure/configuration-files#globally-ignoring-files-with-ignores}
    */
-  { ignores: [".next/"] },
-  ...react,
+  { name: "@repo/eslint-config/next/ignore", ignores: [".next/"] },
+  ...reactConfig,
   {
+    name: "next/core-web-vitals",
     plugins: { "@next/next": next },
     rules: {
       ...next.configs.recommended.rules,
-    },
-    settings: {
-      /**
-       * @see {@link https://nextjs.org/docs/app/api-reference/components/form}
-       */
-      formComponents: [{ name: "Form", formAttribute: "action" }],
-      /**
-       * @see {@link https://nextjs.org/docs/app/api-reference/components/link}
-       */
-      linkComponents: [{ name: "Link", linkAttribute: "href" }],
+      ...next.configs["core-web-vitals"].rules,
     },
   },
 );
+
+export default nextConfig.concat(disables);

@@ -1,10 +1,10 @@
 import type { ComponentPropsWithRef } from "react";
-import { cn } from "@repo/ui/utils";
-
-import { Nav } from "./Nav";
-import { MobileNav } from "./MobileNav";
 
 import { ThemeToggle } from "#components/misc/ThemeToggle";
+import { cn } from "@repo/ui/utils";
+
+import { MobileNav } from "./MobileNav";
+import { Nav } from "./Nav";
 
 export const Navbar = ({
   className,

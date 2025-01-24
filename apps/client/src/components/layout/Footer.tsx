@@ -1,5 +1,6 @@
-import { cn } from "@repo/ui/utils";
 import type { ComponentPropsWithRef } from "react";
+
+import { cn } from "@repo/ui/utils";
 
 export const Footer = ({
   className,

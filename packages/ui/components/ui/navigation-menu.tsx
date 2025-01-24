@@ -1,11 +1,12 @@
 "use client";
 
 import type { ComponentPropsWithRef } from "react";
+
+import { AccessibleIcon } from "@radix-ui/react-accessible-icon";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+import { Slottable } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
-import { AccessibleIcon } from "@radix-ui/react-accessible-icon";
-import { Slottable } from "@radix-ui/react-slot";
 import { twMerge } from "tailwind-merge";
 
 import { cn } from "@repo/ui/utils";

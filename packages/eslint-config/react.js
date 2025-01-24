@@ -1,29 +1,28 @@
+import eslintReact from "@eslint-react/eslint-plugin";
 import globals from "globals";
-import importX from "eslint-plugin-import-x";
 import jsxA11y from "eslint-plugin-jsx-a11y";
-import react from "eslint-plugin-react";
 import reactCompiler from "eslint-plugin-react-compiler";
 import reactHooks from "eslint-plugin-react-hooks";
 import tailwind from "eslint-plugin-tailwindcss";
 import tseslint from "typescript-eslint";
 
-import base from "./index.js";
+import { baseConfig } from "./index.js";
+import disables from "./disables.js";
 
-export default tseslint.config(
-  ...base,
-  ...tailwind.configs["flat/recommended"],
+export const reactConfig = tseslint.config(
+  baseConfig,
+  tailwind.configs["flat/recommended"],
   jsxA11y.flatConfigs.recommended,
-  react.configs.flat.recommended,
-  react.configs.flat["jsx-runtime"],
-  importX.flatConfigs.react,
+  eslintReact.configs["recommended-type-checked"],
+  { name: "react-compiler/recommended", ...reactCompiler.configs.recommended },
   {
-    name: "eslint-config/react.js",
-    plugins: {
-      "react-compiler": reactCompiler,
-      "react-hooks": reactHooks,
-    },
+    name: "react-hooks/recommended",
+    plugins: { "react-hooks": reactHooks },
+    rules: reactHooks.configs.recommended.rules,
+  },
+  {
+    name: "@repo/eslint-config/react.js",
     rules: {
-      ...reactHooks.configs.recommended.rules,
       "@typescript-eslint/no-misused-promises": [
         "error",
         {
@@ -48,7 +47,6 @@ export default tseslint.config(
        * @see {@link https://typescript-eslint.io/rules/require-await/}
        */
       "@typescript-eslint/require-await": "off",
-      "react-compiler/react-compiler": "error",
     },
     languageOptions: {
       globals: {
@@ -58,16 +56,11 @@ export default tseslint.config(
       },
     },
     settings: {
-      react: {
-        version: "detect",
-      },
       tailwindcss: {
         callees: ["classnames", "clsx", "cn", "ctl", "cva", "twMerge"],
       },
     },
   },
-  {
-    files: ["**/*.{js,cjs,jsx,mjs}"],
-    extends: [tseslint.configs.disableTypeChecked],
-  },
 );
+
+export default reactConfig.concat(disables);

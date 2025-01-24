@@ -1,11 +1,11 @@
-import animate from "tailwindcss-animate";
-import radix from "tailwindcss-radix";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import type {
   PresetsConfig,
   ResolvableTo,
   ThemeConfig,
 } from "tailwindcss/types/config";
+import animate from "tailwindcss-animate";
+import radix from "tailwindcss-radix";
 
 type ResolvedType<T> = T extends ResolvableTo<infer R> ? R : never;
 

@@ -1,7 +1,7 @@
 import type { PrimitivePropsWithRef } from "@radix-ui/react-primitive";
 import { Slot, Slottable } from "@radix-ui/react-slot";
-import { ExternalLink } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { ExternalLink } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
 const linkStyles = cva(

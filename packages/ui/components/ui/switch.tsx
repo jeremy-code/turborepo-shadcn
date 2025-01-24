@@ -1,11 +1,12 @@
 "use client";
 
 import type { ComponentPropsWithRef } from "react";
-import * as SwitchPrimitives from "@radix-ui/react-switch";
-import type { ClassValue } from "class-variance-authority/types";
-import { cva, type VariantProps } from "class-variance-authority";
-import { twMerge } from "tailwind-merge";
+
 import { Slottable } from "@radix-ui/react-slot";
+import * as SwitchPrimitives from "@radix-ui/react-switch";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { ClassValue } from "class-variance-authority/types";
+import { twMerge } from "tailwind-merge";
 
 type SwitchVariants = {
   size: Record<"default" | "sm" | "lg", ClassValue>;

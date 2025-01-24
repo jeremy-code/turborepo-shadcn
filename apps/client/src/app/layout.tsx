@@ -1,6 +1,7 @@
 import "@repo/ui/globals.css";
 
 import type { ReactNode } from "react";
+
 import { Lexend } from "next/font/google";
 
 import { AppProvider } from "./_components/AppProvider";

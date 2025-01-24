@@ -1,14 +1,16 @@
 "use client";
 
+import type { ComponentPropsWithRef } from "react";
+
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+
 import { Button } from "@repo/ui/components/ui/button";
+import { navigationMenuTriggerVariants } from "@repo/ui/components/ui/navigation-menu";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@repo/ui/components/ui/popover";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import type { ComponentPropsWithRef } from "react";
-import { navigationMenuTriggerVariants } from "@repo/ui/components/ui/navigation-menu";
 
 /**
  * While <Popover> is not the ideal component for a mobile navigation menu,

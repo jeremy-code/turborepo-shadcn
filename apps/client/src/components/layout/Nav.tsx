@@ -1,6 +1,7 @@
 import type { ComponentPropsWithRef } from "react";
+
 import Link from "next/link";
-import { cn } from "@repo/ui/utils";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,6 +11,7 @@ import {
   NavigationMenuTrigger,
   type NavigationMenuProps,
 } from "@repo/ui/components/ui/navigation-menu";
+import { cn } from "@repo/ui/utils";
 
 const components = [
   {

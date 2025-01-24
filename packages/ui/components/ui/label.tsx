@@ -1,6 +1,7 @@
 "use client";
 
 import type { ComponentPropsWithRef } from "react";
+
 import { Label as LabelPrimitive } from "@radix-ui/react-label";
 import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
