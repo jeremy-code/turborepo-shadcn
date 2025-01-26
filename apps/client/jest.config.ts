@@ -12,8 +12,9 @@ const presetConfig = createJsWithBabelEsmPreset({
 
 const jestConfig: JestConfigWithTsJest = {
   ...presetConfig,
-  testEnvironment: "jsdom",
+  reporters: [["github-actions", { silent: false }], "summary"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  testEnvironment: "jsdom",
 };
 
 export default jestConfig;
