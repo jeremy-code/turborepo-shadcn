@@ -1,5 +1,7 @@
 import type { ComponentPropsWithRef } from "react";
 
+import Link from "next/link";
+
 import { ThemeToggle } from "#components/misc/ThemeToggle";
 import { cn } from "@repo/ui/utils";
 
@@ -19,7 +21,9 @@ export const Navbar = ({
         )}
       >
         <MobileNav />
-        <h1 className="flex-none">App</h1>
+        <Link href="/" className="flex-none">
+          <h1>App</h1>
+        </Link>
         <Nav className="hidden sm:flex" />
         <ThemeToggle />
       </div>
