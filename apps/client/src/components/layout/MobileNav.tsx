@@ -2,7 +2,7 @@
 
 import type { ComponentPropsWithRef } from "react";
 
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { VisuallyHidden } from "radix-ui";
 
 import { Button } from "@repo/ui/components/ui/button";
 import { navigationMenuTriggerVariants } from "@repo/ui/components/ui/navigation-menu";
@@ -26,12 +26,12 @@ export const MobileNav = (props: ComponentPropsWithRef<typeof Popover>) => {
         <PopoverTrigger asChild>
           <Button className="group sm:hidden" variant="ghost" size="icon">
             {/* Using display: hidden to indicate aria-hidden with data-attribute */}
-            <VisuallyHidden className="group-radix-state-closed:block group-radix-state-open:hidden">
+            <VisuallyHidden.Root className="group-radix-state-closed:block group-radix-state-open:hidden">
               Open menu
-            </VisuallyHidden>
-            <VisuallyHidden className="group-radix-state-closed:hidden group-radix-state-open:block">
+            </VisuallyHidden.Root>
+            <VisuallyHidden.Root className="group-radix-state-closed:hidden group-radix-state-open:block">
               Close menu
-            </VisuallyHidden>
+            </VisuallyHidden.Root>
             <svg
               aria-hidden="true"
               viewBox="0 0 24 24"
@@ -46,7 +46,7 @@ export const MobileNav = (props: ComponentPropsWithRef<typeof Popover>) => {
                * y-direction.
                */}
               <path
-                className="origin-center transition-transform [transform-box:stroke-box] group-radix-state-open:translate-y-[6px] group-radix-state-open:rotate-45"
+                className="group-radix-state-open:translate-y-[6px] group-radix-state-open:rotate-45 origin-center transition-transform [transform-box:stroke-box]"
                 d="M4 6H20"
               />
 
@@ -59,11 +59,11 @@ export const MobileNav = (props: ComponentPropsWithRef<typeof Popover>) => {
                  *
                  * @see {@link https://caniuse.com/mdn-css_properties_d}
                  */
-                className="transition-[d,opacity] group-radix-state-open:opacity-0 group-radix-state-open:[d:path('M12_12H12')]"
+                className="group-radix-state-open:opacity-0 group-radix-state-open:[d:path('M12_12H12')] transition-[d,opacity]"
                 d="M4 12H20"
               />
               <path
-                className="origin-center transition-transform [transform-box:stroke-box] group-radix-state-open:translate-y-[-6px] group-radix-state-open:-rotate-45"
+                className="group-radix-state-open:translate-y-[-6px] group-radix-state-open:-rotate-45 origin-center transition-transform [transform-box:stroke-box]"
                 d="M4 18H20"
               />
             </svg>

@@ -13,6 +13,7 @@ const nextConfig = {
   // Only enable transpilePackages if you are using Pages Router instead of App Router
   // transpilePackages: ["@repo/ui"],
   experimental: {
+    optimizePackageImports: ["radix-ui", "radix-ui/internal"],
     webpackBuildWorker: true,
     reactCompiler: true,
   },

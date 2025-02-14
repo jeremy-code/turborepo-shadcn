@@ -1,7 +1,7 @@
-import type { PrimitivePropsWithRef } from "@radix-ui/react-primitive";
-import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ExternalLink } from "lucide-react";
+import { Slot } from "radix-ui";
+import type { PrimitivePropsWithRef } from "radix-ui/internal";
 import { twMerge } from "tailwind-merge";
 
 const linkStyles = cva(
@@ -58,7 +58,7 @@ export const Link = ({
   underline,
   ...props
 }: LinkProps) => {
-  const Comp = asChild ? Slot : "a";
+  const Comp = asChild ? Slot.Root : "a";
 
   return (
     <Comp
@@ -67,7 +67,7 @@ export const Link = ({
       {...(isExternal && { target: "_blank" })}
       {...props}
     >
-      <Slottable>{children}</Slottable>
+      <Slot.Slottable>{children}</Slot.Slottable>
       {isExternal && <ExternalLink className="size-[1em] flex-none" />}
     </Comp>
   );

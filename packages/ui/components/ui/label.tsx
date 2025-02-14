@@ -2,8 +2,8 @@
 
 import type { ComponentPropsWithRef } from "react";
 
-import { Label as LabelPrimitive } from "@radix-ui/react-label";
 import { cva, type VariantProps } from "class-variance-authority";
+import { Label as LabelPrimitive } from "radix-ui";
 import { twMerge } from "tailwind-merge";
 
 const labelVariants = cva(
@@ -20,11 +20,11 @@ const labelVariants = cva(
   },
 );
 
-export type LabelProps = ComponentPropsWithRef<typeof LabelPrimitive> &
+export type LabelProps = ComponentPropsWithRef<typeof LabelPrimitive.Root> &
   VariantProps<typeof labelVariants>;
 
 export const Label = ({ className, required, ...props }: LabelProps) => (
-  <LabelPrimitive
+  <LabelPrimitive.Root
     className={twMerge(labelVariants({ className, required }))}
     {...props}
   />

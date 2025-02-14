@@ -2,9 +2,9 @@
 
 import type { ComponentPropsWithRef } from "react";
 
-import { AccessibleIcon } from "@radix-ui/react-accessible-icon";
 import { Moon, RefreshCw, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { AccessibleIcon } from "radix-ui";
 
 import { useIsMounted } from "#hooks/useIsMounted";
 import { SwitchRoot, SwitchThumb } from "@repo/ui/components/ui/switch";
@@ -36,12 +36,12 @@ export const ThemeToggle = (props: ThemeToggleProps) => {
       {...props}
     >
       <SwitchThumb className="grid place-content-center bg-background">
-        <AccessibleIcon label={themeIconLabel}>
+        <AccessibleIcon.Root label={themeIconLabel}>
           <ThemeIcon
             size={16} // spacing.4 (1rem)
             className={cn({ "animate-spin": !isMounted })}
           />
-        </AccessibleIcon>
+        </AccessibleIcon.Root>
       </SwitchThumb>
     </SwitchRoot>
   );

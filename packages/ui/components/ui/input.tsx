@@ -1,12 +1,12 @@
-import type { PrimitivePropsWithRef } from "@radix-ui/react-primitive";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from "radix-ui";
+import type { PrimitivePropsWithRef } from "radix-ui/internal";
 
 import { cn } from "@repo/ui/utils";
 
 export type InputProps = PrimitivePropsWithRef<"input">;
 
 export const Input = ({ className, asChild, ...props }: InputProps) => {
-  const Comp = asChild ? Slot : "input";
+  const Comp = asChild ? Slot.Root : "input";
 
   return (
     <Comp

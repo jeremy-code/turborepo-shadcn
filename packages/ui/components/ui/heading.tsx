@@ -1,8 +1,8 @@
 import type { HTMLElementType } from "react";
 
-import type { PrimitivePropsWithRef } from "@radix-ui/react-primitive";
-import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import { Slot } from "radix-ui";
+import type { PrimitivePropsWithRef } from "radix-ui/internal";
 import { twMerge } from "tailwind-merge";
 
 type HTMLHeadingElementType = Extract<HTMLElementType, `h${number}`>;
@@ -53,7 +53,7 @@ export const Heading = ({
   fontWeight,
   ...props
 }: HeadingProps) => {
-  const Comp = asChild ? Slot : (as ?? "h1");
+  const Comp = asChild ? Slot.Root : (as ?? "h1");
 
   return (
     <Comp

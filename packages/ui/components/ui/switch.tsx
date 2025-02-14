@@ -2,10 +2,9 @@
 
 import type { ComponentPropsWithRef } from "react";
 
-import { Slottable } from "@radix-ui/react-slot";
-import * as SwitchPrimitives from "@radix-ui/react-switch";
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ClassValue } from "class-variance-authority/types";
+import { Slot, Switch as SwitchPrimitives } from "radix-ui";
 import { twMerge } from "tailwind-merge";
 
 type SwitchVariants = {
@@ -80,7 +79,7 @@ export const Switch = ({
   ...props
 }: ComponentPropsWithRef<typeof SwitchRoot>) => (
   <SwitchRoot size={size} {...props}>
-    <Slottable>{children}</Slottable>
+    <Slot.Slottable>{children}</Slot.Slottable>
     <SwitchThumb size={size} />
   </SwitchRoot>
 );

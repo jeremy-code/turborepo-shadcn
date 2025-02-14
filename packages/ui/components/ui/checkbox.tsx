@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef } from "react";
 
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Check, Minus } from "lucide-react";
+import { Checkbox as CheckboxPrimitive } from "radix-ui";
 
 import { cn } from "@repo/ui/utils";
 
@@ -19,8 +19,8 @@ export const Checkbox = ({
     {...props}
   >
     <CheckboxPrimitive.Indicator className="group">
-      <Minus className="hidden size-3 group-radix-state-indeterminate:block" />
-      <Check className="hidden size-3 group-radix-state-checked:block" />
+      <Minus className="group-radix-state-indeterminate:block hidden size-3" />
+      <Check className="group-radix-state-checked:block hidden size-3" />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 );
