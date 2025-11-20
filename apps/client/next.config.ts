@@ -10,11 +10,11 @@ const nextConfig = {
   compiler: {
     removeConsole: { exclude: ["error"] },
   },
+  reactCompiler: true,
   // Only enable transpilePackages if you are using Pages Router instead of App Router
   // transpilePackages: ["@repo/ui"],
   experimental: {
     webpackBuildWorker: true,
-    reactCompiler: true,
   },
 } satisfies NextConfig;
 
